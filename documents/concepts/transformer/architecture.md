@@ -28,3 +28,14 @@
 - 복호화
   + 생성하는 느낌
   + GPT 계열
+
+## Related Documents & Blog
+- https://huggingface.co/datasets/bongsoo/news_talk_en_ko/tree/main
+- https://wikidocs.net/22136
+- https://metamath1.github.io/blog/posts/gentle-t5-trans/gentle_t5_trans.html
+- https://github.com/Beomi/KoAlpaca/blob/main/README.md#koalpaca-korean-alpaca-model-based-on-stanford-alpaca-feat-llama-and-polyglot-ko
+- https://github.com/gyupro/Koalpaca-Translation-KR2EN
+- https://ooiillppaaiinntt.tistory.com/entry/%EC%9E%90%EC%97%B0%EC%96%B4%EC%B2%98%EB%A6%ACNLP-%EB%AA%A8%EB%8D%B8%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B3%B5%EB%B6%80-%EC%88%9C%EC%84%9C
+- https://asecurity.dev/entry/Transformers-GPT-%EC%9D%B4%ED%95%B4
+- https://yeong-jin-data-blog.tistory.com/entry/Tranfomer#:~:text=encoder%EB%8A%94%20%EC%9E%85%EB%A0%A5%EB%90%9C%20raw,%2C%20%EB%B9%84%EB%94%94%EC%98%A4)%EB%A1%9C%20%EB%B3%80%ED%99%98%ED%95%9C%EB%8B%A4.
+- https://uiandwe.tistory.com/1377
