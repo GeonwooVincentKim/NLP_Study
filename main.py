@@ -44,3 +44,6 @@ en_ko_df_test.to_csv("test.tsv", sep="\t", index=False)
 data_files = {"train": "train.tsv", "valid": "valid.tsv", "test": "test.tsv"}
 dataset = load_dataset("csv", data_files=data_files, delimiter="\t")
 print(dataset)
+
+print(dataset['train']['en'][:3], dataset['train']['ko'][:3])
+print(dataset['train'][:3]['en'], dataset['train'][:3]['ko'])
