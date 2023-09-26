@@ -1,9 +1,11 @@
 from datasets import load_dataset
-en_ko = load_dataset("bongsoo/news_talk_en_ko")
+from datasets import Dataset
+import pandas as pd
 
+
+en_ko = load_dataset("bongsoo/news_talk_en_ko")
 print(en_ko)
 
-import pandas as pd
 en_ko.set_format(type="pandas")
 
 df = en_ko["train"][:]
@@ -19,3 +21,26 @@ df.columns = ('en', 'ko')
 en_ko_df = pd.concat([example_0_df, df],).reset_index(drop=True)
 ko_k = en_ko_df.head()
 print(ko_k)
+
+dataset = Dataset.from_pandas(en_ko_df)
+print(dataset)
+
+num_train = 1200000
+num_valid = 90000
+num_test = 10000
+
+en_ko_df_train = en_ko_df.iloc[:num_train]
+en_ko_df_valid = en_ko_df.iloc[num_train:num_train+num_valid]
+en_ko_df_test = en_ko_df.iloc[-num_test:]
+
+print(en_ko_df_train)
+print(en_ko_df_valid)
+print(en_ko_df_test)
+
+en_ko_df_train.to_csv("train.tsv", sep="\t", index=False)
+en_ko_df_valid.to_csv("valid.tsv", sep="\t", index=False)
+en_ko_df_test.to_csv("valid.tsv", sep="\t", index=False)
+
+data_files = {"train": "train.tsv", "valid": "valid.tsv", "test": "test.tsv"}
+dataset = load_dataset("csv", data_files=data_files, delimiter="\t")
+print(dataset)
