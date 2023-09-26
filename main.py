@@ -13,3 +13,9 @@ print(k)
 example_0 = list(df.columns)
 print(example_0)
 
+example_0_df = pd.DataFrame({col: [value] for col, value in zip(('en', 'ko'), example_0)})
+df.columns = ('en', 'ko')
+
+en_ko_df = pd.concat([example_0_df, df],).reset_index(drop=True)
+ko_k = en_ko_df.head()
+print(ko_k)
