@@ -39,7 +39,7 @@ print(en_ko_df_test)
 
 en_ko_df_train.to_csv("train.tsv", sep="\t", index=False)
 en_ko_df_valid.to_csv("valid.tsv", sep="\t", index=False)
-en_ko_df_test.to_csv("valid.tsv", sep="\t", index=False)
+en_ko_df_test.to_csv("test.tsv", sep="\t", index=False)
 
 data_files = {"train": "train.tsv", "valid": "valid.tsv", "test": "test.tsv"}
 dataset = load_dataset("csv", data_files=data_files, delimiter="\t")
