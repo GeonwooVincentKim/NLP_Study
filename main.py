@@ -35,6 +35,10 @@ en_ko_df_train = en_ko_df.iloc[:num_train]
 en_ko_df_valid = en_ko_df.iloc[num_train:num_train+num_valid]
 en_ko_df_test = en_ko_df.iloc[-num_test:]
 
+print(en_ko_df_train)
+print(en_ko_df_valid)
+print(en_ko_df_test)
+
 en_ko_df_train.to_csv("train.tsv", sep="\t", index=False)
 en_ko_df_valid.to_csv("valid.tsv", sep="\t", index=False)
 en_ko_df_test.to_csv("test.tsv", sep="\t", index=False)
