@@ -1,9 +1,18 @@
-from datasets import load_dataset
-from datasets import Dataset
+from datasets import (
+    Dataset,
+    load_dataset, load_metric
+)
 
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import (
+    AutoTokenizer, AutoModelForSeq2SeqLM,
+    DataCollatorForSeq2Seq,
+    Seq2SeqTrainingArguments, Seq2SeqTrainer
+)
+
 import pandas as pd
-
+import numpy as np
+import torch
+import multiprocessing
 
 en_ko = load_dataset("bongsoo/news_talk_en_ko")
 print(en_ko)
@@ -49,3 +58,17 @@ print(dataset)
 
 print(dataset['train']['en'][:3], dataset['train']['ko'][:3])
 print(dataset['train'][:3]['en'], dataset['train'][:3]['ko'])
+
+model_ckpt = 'KETI-AIR/ke-t5-base'
+max_token_length = 64
+tokenizer = AutoTokenizer.from_pretrained(model_ckpt)
+
+tokenized_sample_en = tokenizer(
+    dataset['train'][10]['en'],
+    max_length=max_token_length,
+    padding=True, truncation=True
+)
+
+get_datasetResultEn, get_datasetResultKo = dataset['train'][10]['en'], dataset['train'][10]['ko']
+print(get_datasetResultEn)
+print(get_datasetResultKo)
