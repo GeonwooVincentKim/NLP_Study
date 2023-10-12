@@ -6,7 +6,8 @@ from datasets import (
 from transformers import (
     AutoTokenizer, AutoModelForSeq2SeqLM,
     DataCollatorForSeq2Seq,
-    Seq2SeqTrainingArguments, Seq2SeqTrainer
+    Seq2SeqTrainingArguments, Seq2SeqTrainer,
+    T5Tokenizer, T5ForConditionalGeneration
 )
 
 import pandas as pd
@@ -61,20 +62,34 @@ print(dataset['train'][:3]['en'], dataset['train'][:3]['ko'])
 
 model_ckpt = 'KETI-AIR/ke-t5-base'
 max_token_length = 64
-tokenizer = AutoTokenizer.from_pretrained(model_ckpt)
+showTokenizer = T5Tokenizer.from_pretrained(model_ckpt)
+displayModel = T5ForConditionalGeneration.from_pretrained(model_ckpt)
+# tokenizer_Auto = AutoTokenizer.from_pretrained(model_ckpt)
+# print(tokenizer_Auto)
 
-tokenized_sample_en = tokenizer(
-    dataset['train'][10]['en'],
-    max_length=max_token_length,
-    padding=True, truncation=True
-)
+# import sentencepiece.sentencepiece_model_pb2 as senPb
 
-tokenized_sample_ko = tokenizer(
-    dataset['train'][10]['ko'],
-    max_length=max_token_length,
-    padding=True, truncation=True
-)
 
-get_datasetResultEn, get_datasetResultKo = dataset['train'][10]['en'], dataset['train'][10]['ko']
-print(get_datasetResultEn)
-print(get_datasetResultKo)
+# tokenized_sample_en = tokenizer(
+#     dataset['train'][10]['en'],
+#     max_length=max_token_length,
+#     padding=True, truncation=True
+# )
+# print(tokenized_sample_en)
+
+# tokenized_sample_ko = tokenizer(
+#     dataset['train'][10]['ko'],
+#     max_length=max_token_length,
+#     padding=True, truncation=True
+# )
+
+# get_datasetResultEn, get_datasetResultKo = dataset['train'][10]['en'], dataset['train'][10]['ko']
+# print(get_datasetResultEn)
+# print(get_datasetResultKo)
+
+# pd.DataFrame(
+#     [
+#         tokenized_sample_en['input_ids'],
+#         tokenizer.convert_ids_to_tokens(tokenized_sample_en['input_ids'])
+#     ], index=('ids', 'tokens')
+# )

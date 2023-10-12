@@ -1,0 +1,1 @@
+conda install transformers, datasets, sentencepiece, evaluate, sacrebleu
