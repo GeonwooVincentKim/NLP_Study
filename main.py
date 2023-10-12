@@ -69,6 +69,12 @@ tokenized_sample_en = tokenizer(
     padding=True, truncation=True
 )
 
+tokenized_sample_ko = tokenizer(
+    dataset['train'][10]['ko'],
+    max_length=max_token_length,
+    padding=True, truncation=True
+)
+
 get_datasetResultEn, get_datasetResultKo = dataset['train'][10]['en'], dataset['train'][10]['ko']
 print(get_datasetResultEn)
 print(get_datasetResultKo)
